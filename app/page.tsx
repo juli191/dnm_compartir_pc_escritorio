@@ -90,7 +90,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Propósito</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Crear una empresa sólida con trayectoria y confianza en el tiempo.
+                  Ofrecer soluciones integrales de reforma con total tranquilidad para el cliente, de principio a fin.
                 </p>
               </div>
             </Card>
@@ -98,7 +98,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Visión</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Crear una empresa sólida con trayectoria y confianza en el tiempo.
+                  Ser la empresa de reformas referente en Oviedo - Asturias, reconocida por confianza y acompañamiento post-obra.
                 </p>
               </div>
             </Card>
@@ -122,7 +122,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Enfoque</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Cada acción individual de nuestros empleados contribuye a generar más clientes satisfechos.
+                  Cada acción individual de nuestro equipo contribuye a generar más clientes satisfechos.
                 </p>
               </div>
             </Card>
