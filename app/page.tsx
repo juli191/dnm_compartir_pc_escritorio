@@ -6,10 +6,10 @@ import { Card } from "@/components/ui/card"
 import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench } from "lucide-react"
 import { ChatSidebar } from "@/components/chat-sidebar"
 import { useState } from "react"
-
+import { useVapi } from "@/hooks/use-vapi"
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false)
-
+  const { startCall } = useVapi()
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background */}
@@ -359,7 +359,7 @@ export default function Home() {
       </footer>
 
       <button
-        onClick={() => setIsChatOpen(true)}
+        onClick={() => startCall()}
         className="fixed bottom-6 right-6 border-2 border-white bg-black/60 backdrop-blur-mdS text-white px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-105 z-40 flex items-center gap-3 font-bold text-lg animate-bounce backdrop-blur-sm"
         style={{
           animation: "bounce 2s ease-in-out infinite, pulse 1.5s ease-in-out infinite",
