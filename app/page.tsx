@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-start pt-16 md:pt-24 justify-center overflow-hidden">
         {/* Imagen de fondo */}
         <div className="absolute inset-0 z-0">
           <Image src="/hero.jpg" alt="Interior moderno" fill className="object-cover brightness-75" priority />
@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Logotipo Ajustado y Texto Principal */}
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="mb-6 flex justify-center">
+          <div className="mb-4 flex justify-center">
             <Image
               src="/logo_renovadodnm.png"
               alt="Déjalo En Nuestras Manos"
@@ -34,7 +34,7 @@ export default function Home() {
             />
           </div>
 
-          <p className="text-xl md:text-2xl mb-8 text-balance max-w-3xl mx-auto text-white/90 font-medium">
+          <p className="text-xl md:text-2xl mb-4 text-balance max-w-3xl mx-auto text-white/90 font-medium">
             Nos ocupamos de todo para que tú no tengas que preocuparte por nada.
           </p>
         </div>
@@ -288,7 +288,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de contacto con tus botones de Chatbot y WhatsApp cargados correctamente */}
+      {/* Sección de contacto */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">¿Listo para empezar tu proyecto?</h2>
@@ -306,7 +306,7 @@ export default function Home() {
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-                  {/* Botón Asistente Virtual con la imagen diseñada */}
+                  {/* Botón Asistente Virtual */}
                   <button
                     onClick={() => setIsChatOpen(true)}
                     className="group relative flex items-center justify-center p-0 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105 active:scale-95"
@@ -320,7 +320,7 @@ export default function Home() {
                     />
                   </button>
 
-                  {/* Botón WhatsApp con la imagen diseñada */}
+                  {/* Botón WhatsApp */}
                   <a
                     href="https://wa.me/34614488643"
                     target="_blank"
