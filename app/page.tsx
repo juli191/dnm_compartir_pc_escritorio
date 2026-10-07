@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench, PhoneOff, MessageSquare, MessageCircle } from "lucide-react"
+import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench, PhoneOff } from "lucide-react"
 import { ChatSidebar } from "@/components/chat-sidebar"
 import { useState } from "react"
 import { useVapi } from "@/hooks/use-vapi"
@@ -21,20 +21,20 @@ export default function Home() {
           <Image src="/hero.jpg" alt="Interior moderno" fill className="object-cover brightness-75" priority />
         </div>
 
-        {/* Logotipo y Texto Principal */}
+        {/* Logotipo Ajustado y Texto Principal */}
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="mb-8 flex justify-center">
+          <div className="mb-6 flex justify-center">
             <Image
               src="/logo_renovadodnm.png"
               alt="Déjalo En Nuestras Manos"
-              width={600}
-              height={200}
-              className="w-auto h-auto max-w-[320px] md:max-w-[500px]"
+              width={260}
+              height={260}
+              className="w-auto h-auto max-w-[200px] md:max-w-[260px] object-contain drop-shadow-lg"
               priority
             />
           </div>
 
-          <p className="text-xl md:text-2xl mb-8 text-balance max-w-3xl mx-auto text-white/90">
+          <p className="text-xl md:text-2xl mb-8 text-balance max-w-3xl mx-auto text-white/90 font-medium">
             Nos ocupamos de todo para que tú no tengas que preocuparte por nada.
           </p>
         </div>
@@ -288,7 +288,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de contacto y Formulario directo */}
+      {/* Sección de contacto con tus botones de Chatbot y WhatsApp cargados correctamente */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">¿Listo para empezar tu proyecto?</h2>
@@ -297,7 +297,7 @@ export default function Home() {
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            {/* Opciones directas: Asistente Virtual y WhatsApp */}
+            {/* Opciones directas: Botones diseñados Chatbot y WhatsApp */}
             <div className="space-y-6">
               <div className="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 backdrop-blur-sm shadow-xl">
                 <h3 className="text-2xl font-bold mb-4">Canales de atención directa</h3>
@@ -305,25 +305,35 @@ export default function Home() {
                   Estamos listos para responder a tus inquietudes al instante a través de nuestros canales digitales.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Botón Asistente Virtual */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                  {/* Botón Asistente Virtual con la imagen diseñada */}
                   <button
                     onClick={() => setIsChatOpen(true)}
-                    className="w-full flex items-center justify-center gap-3 bg-white text-primary hover:bg-gray-100 px-6 py-4 rounded-xl font-bold shadow-md transition-all duration-200"
+                    className="group relative flex items-center justify-center p-0 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105 active:scale-95"
                   >
-                    <MessageSquare className="w-6 h-6 text-primary" />
-                    <span className="text-base">Asistente Virtual</span>
+                    <Image
+                      src="/boton_chatbot_dnm.jpg"
+                      alt="Asistente Virtual Chatbot"
+                      width={220}
+                      height={220}
+                      className="w-full h-auto max-w-[200px] object-contain rounded-2xl"
+                    />
                   </button>
 
-                  {/* Botón WhatsApp */}
+                  {/* Botón WhatsApp con la imagen diseñada */}
                   <a
                     href="https://wa.me/34614488643"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-4 rounded-xl font-bold shadow-md transition-all duration-200"
+                    className="group relative flex items-center justify-center p-0 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105 active:scale-95"
                   >
-                    <MessageCircle className="w-6 h-6 text-white fill-current" />
-                    <span className="text-base">WhatsApp</span>
+                    <Image
+                      src="/boton_whatsapp_dnm.jpg"
+                      alt="WhatsApp Contacto"
+                      width={220}
+                      height={220}
+                      className="w-full h-auto max-w-[200px] object-contain rounded-2xl"
+                    />
                   </a>
                 </div>
               </div>
@@ -409,11 +419,11 @@ export default function Home() {
                 <Image
                   src="/logo_renovadodnm.png"
                   alt="Déjalo En Nuestras Manos"
-                  width={150}
-                  height={150}
-                  className="w-auto h-auto max-w-[60px] md:max-w-[80px] lg:max-w-[100px]"
+                  width={80}
+                  height={80}
+                  className="w-auto h-auto max-w-[60px] md:max-w-[80px]"
                 />
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-background">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-background">
                   Déjalo En
                   <br />
                   Nuestras Manos
