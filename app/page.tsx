@@ -3,13 +3,15 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench } from "lucide-react"
+import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench, PhoneOff, MessageSquare } from "lucide-react"
 import { ChatSidebar } from "@/components/chat-sidebar"
 import { useState } from "react"
 import { useVapi } from "@/hooks/use-vapi"
+
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false)
-  const { startCall } = useVapi()
+  const { startCall, stopCall } = useVapi()
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background */}
@@ -23,7 +25,7 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="mb-8 flex justify-center">
             <Image
-              src="/logo.png"
+              src="/logorenovado_dnm.png"
               alt="Déjalo En Nuestras Manos"
               width={600}
               height={200}
@@ -280,26 +282,119 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Opciones de contacto y Formulario directo */}
       <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">¿Listo para empezar tu proyecto?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Transforma tu casa con confianza. Déjalo en nuestras manos.
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">¿Listo para empezar tu proyecto?</h2>
+          <p className="text-xl mb-12 max-w-2xl mx-auto opacity-90 text-center">
+            Transforma tu casa con confianza. Elige la opción de contacto que prefieras.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <a href="tel:+34614488643" className="flex items-center gap-2 justify-center text-lg hover:underline">
-              <Phone className="w-5 h-5" />
-              <span>+34 614 488 643</span>
-            </a>
-            <a
-              href="mailto:contacto@henmos.es"
-              className="flex items-center gap-2 justify-center text-lg hover:underline"
-            >
-              <Mail className="w-5 h-5" />
-              <span>contacto@henmos.es</span>
-            </a>
-          </div>
 
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            {/* Opciones directas: Chatbot y WhatsApp */}
+            <div className="space-y-6">
+              <div className="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-4">Canales de atención directa</h3>
+                <p className="mb-6 opacity-90">
+                  Estamos listos para responder a tus inquietudes al instante a través de nuestros canales digitales.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => setIsChatOpen(true)}
+                    className="flex-1 flex items-center justify-center gap-3 bg-white text-primary px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-gray-100 transition-all"
+                  >
+                    <MessageSquare className="w-6 h-6" />
+                    <span>Asistente Virtual</span>
+                  </button>
+
+                  <a
+                    href="https://wa.me/34614488643"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-[#20ba5a] transition-all"
+                  >
+                    <Image
+                      src="/boton_whatsapp_dnm.png"
+                      alt="WhatsApp"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
+                <a href="tel:+34614488643" className="flex items-center gap-2 justify-center text-lg hover:underline">
+                  <Phone className="w-5 h-5" />
+                  <span>+34 614 488 643</span>
+                </a>
+                <a
+                  href="mailto:contacto@henmos.es"
+                  className="flex items-center gap-2 justify-center text-lg hover:underline"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>contacto@henmos.es</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Formulario de Contacto en la página */}
+            <div className="bg-[#002b49] border border-[#d4af37] rounded-2xl p-8 shadow-2xl text-white">
+              <h3 className="text-xl font-bold text-[#d4af37] tracking-wider border-b border-[#d4af37] inline-block pb-2 mb-2 text-center w-full">
+                CONTACTO DIRECTO
+              </h3>
+              <p className="text-gray-300 text-sm mb-6 text-center">
+                Déjanos tus datos y te llamamos en minutos
+              </p>
+
+              <form action="https://formspree.io/f/xbgdgkbn" method="POST" className="space-y-4 text-left">
+                <div>
+                  <label className="block text-xs font-semibold tracking-wide uppercase mb-1">
+                    NOMBRE COMPLETO
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    required
+                    className="w-full p-3 bg-gray-100 text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold tracking-wide uppercase mb-1">
+                    TELÉFONO DE CONTACTO
+                  </label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    required
+                    className="w-full p-3 bg-gray-100 text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold tracking-wide uppercase mb-1">
+                    ¿CÓMO PODEMOS AYUDARTE?
+                  </label>
+                  <textarea
+                    name="mensaje"
+                    rows={3}
+                    className="w-full p-3 bg-gray-100 text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded transition-colors duration-200 tracking-wider uppercase shadow-md mt-2"
+                >
+                  SOLICITAR LLAMADA
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -309,7 +404,7 @@ export default function Home() {
             <div>
               <div className="mb-4 flex items-center gap-3 md:gap-4">
                 <Image
-                  src="/logo.png"
+                  src="/logorenovado_dnm.png"
                   alt="Déjalo En Nuestras Manos"
                   width={150}
                   height={150}
@@ -358,19 +453,40 @@ export default function Home() {
         </div>
       </footer>
 
-      <button
-        onClick={() => startCall()}
-        className="fixed bottom-6 right-6 border-2 border-white bg-black/60 backdrop-blur-mdS text-white px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-105 z-40 flex items-center gap-3 font-bold text-lg animate-bounce backdrop-blur-sm"
-        style={{
-          animation: "bounce 2s ease-in-out infinite, pulse 1.5s ease-in-out infinite",
-        }}
-      >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-        </span>
-        Solicita tu presupuesto gratuito
-      </button>
+      {/* Botones de acción flotantes centrados en pantalla */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 sm:gap-4 bg-black/60 backdrop-blur-md p-2 rounded-full border border-white/30 shadow-2xl">
+        {/* Botón Llamar */}
+        <button
+          onClick={() => startCall()}
+          className="bg-green-600 hover:bg-green-700 text-white p-3 sm:px-5 sm:py-3 rounded-full font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-md"
+          title="Iniciar llamada"
+        >
+          <Phone className="w-5 h-5" />
+          <span className="hidden sm:inline">Llamar</span>
+        </button>
+
+        {/* Botón Central Solicitar Presupuesto */}
+        <button
+          onClick={() => startCall()}
+          className="text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 animate-bounce"
+        >
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+          </span>
+          Solicita tu presupuesto gratuito
+        </button>
+
+        {/* Botón Colgar */}
+        <button
+          onClick={() => stopCall && stopCall()}
+          className="bg-red-600 hover:bg-red-700 text-white p-3 sm:px-5 sm:py-3 rounded-full font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-md"
+          title="Finalizar llamada"
+        >
+          <PhoneOff className="w-5 h-5" />
+          <span className="hidden sm:inline">Colgar</span>
+        </button>
+      </div>
 
       <ChatSidebar isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
