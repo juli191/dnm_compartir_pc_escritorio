@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench, PhoneOff, MessageSquare } from "lucide-react"
+import { Hammer, Building2, Phone, Mail, MapPin, CheckCircle2, Wrench, PhoneOff, MessageSquare, MessageCircle } from "lucide-react"
 import { ChatSidebar } from "@/components/chat-sidebar"
 import { useState } from "react"
 import { useVapi } from "@/hooks/use-vapi"
@@ -14,22 +14,23 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Imagen de fondo */}
         <div className="absolute inset-0 z-0">
           <Image src="/hero.jpg" alt="Interior moderno" fill className="object-cover brightness-75" priority />
         </div>
 
-        {/* Content Overlay */}
+        {/* Logotipo y Texto Principal */}
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="mb-8 flex justify-center">
             <Image
-              src="/logorenovado_dnm.png"
+              src="/logo_renovadodnm.png"
               alt="Déjalo En Nuestras Manos"
               width={600}
               height={200}
-              className="w-auto h-auto max-w-[600px]"
+              className="w-auto h-auto max-w-[320px] md:max-w-[500px]"
+              priority
             />
           </div>
 
@@ -38,7 +39,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Indicador de Scroll */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white/50 rounded-full"></div>
@@ -46,6 +47,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sección Nuestra razón de ser */}
       <section className="py-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -82,6 +84,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sección Características Principales */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-foreground">
@@ -140,6 +143,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Servicios */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -191,6 +195,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ¿Por qué elegirnos? */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -216,6 +221,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Identidad de marca */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-foreground">Identidad de Marca</h2>
@@ -282,7 +288,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Opciones de contacto y Formulario directo */}
+      {/* Sección de contacto y Formulario directo */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">¿Listo para empezar tu proyecto?</h2>
@@ -291,37 +297,33 @@ export default function Home() {
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            {/* Opciones directas: Chatbot y WhatsApp */}
+            {/* Opciones directas: Asistente Virtual y WhatsApp */}
             <div className="space-y-6">
-              <div className="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
+              <div className="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 backdrop-blur-sm shadow-xl">
                 <h3 className="text-2xl font-bold mb-4">Canales de atención directa</h3>
                 <p className="mb-6 opacity-90">
                   Estamos listos para responder a tus inquietudes al instante a través de nuestros canales digitales.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Botón Asistente Virtual */}
                   <button
                     onClick={() => setIsChatOpen(true)}
-                    className="flex-1 flex items-center justify-center gap-3 bg-white text-primary px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-gray-100 transition-all"
+                    className="w-full flex items-center justify-center gap-3 bg-white text-primary hover:bg-gray-100 px-6 py-4 rounded-xl font-bold shadow-md transition-all duration-200"
                   >
-                    <MessageSquare className="w-6 h-6" />
-                    <span>Asistente Virtual</span>
+                    <MessageSquare className="w-6 h-6 text-primary" />
+                    <span className="text-base">Asistente Virtual</span>
                   </button>
 
+                  {/* Botón WhatsApp */}
                   <a
                     href="https://wa.me/34614488643"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-[#20ba5a] transition-all"
+                    className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-4 rounded-xl font-bold shadow-md transition-all duration-200"
                   >
-                    <Image
-                      src="/boton_whatsapp_dnm.png"
-                      alt="WhatsApp"
-                      width={24}
-                      height={24}
-                      className="w-6 h-6 object-contain"
-                    />
-                    <span>WhatsApp</span>
+                    <MessageCircle className="w-6 h-6 text-white fill-current" />
+                    <span className="text-base">WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -341,7 +343,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Formulario de Contacto en la página */}
+            {/* Formulario de Contacto Formspree */}
             <div className="bg-[#002b49] border border-[#d4af37] rounded-2xl p-8 shadow-2xl text-white">
               <h3 className="text-xl font-bold text-[#d4af37] tracking-wider border-b border-[#d4af37] inline-block pb-2 mb-2 text-center w-full">
                 CONTACTO DIRECTO
@@ -398,13 +400,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pie de página */}
       <footer className="bg-foreground text-background py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
               <div className="mb-4 flex items-center gap-3 md:gap-4">
                 <Image
-                  src="/logorenovado_dnm.png"
+                  src="/logo_renovadodnm.png"
                   alt="Déjalo En Nuestras Manos"
                   width={150}
                   height={150}
@@ -453,9 +456,8 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Botones de acción flotantes centrados en pantalla */}
+      {/* Botones Flotantes de Llamada Vapi */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 sm:gap-4 bg-black/60 backdrop-blur-md p-2 rounded-full border border-white/30 shadow-2xl">
-        {/* Botón Llamar */}
         <button
           onClick={() => startCall()}
           className="bg-green-600 hover:bg-green-700 text-white p-3 sm:px-5 sm:py-3 rounded-full font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-md"
@@ -465,7 +467,6 @@ export default function Home() {
           <span className="hidden sm:inline">Llamar</span>
         </button>
 
-        {/* Botón Central Solicitar Presupuesto */}
         <button
           onClick={() => startCall()}
           className="text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full font-bold text-sm sm:text-base flex items-center gap-2 animate-bounce"
@@ -477,7 +478,6 @@ export default function Home() {
           Solicita tu presupuesto gratuito
         </button>
 
-        {/* Botón Colgar */}
         <button
           onClick={() => stopCall && stopCall()}
           className="bg-red-600 hover:bg-red-700 text-white p-3 sm:px-5 sm:py-3 rounded-full font-bold flex items-center gap-2 transition-transform hover:scale-105 shadow-md"
